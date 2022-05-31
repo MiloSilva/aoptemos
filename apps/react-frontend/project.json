@@ -1,6 +1,6 @@
 {
   "$schema": "..\\..\\node_modules\\nx\\schemas\\project-schema.json",
-  "sourceRoot": "apps/adoptemos/src",
+  "sourceRoot": "apps/react-frontend/src",
   "projectType": "application",
   "targets": {
     "build": {
@@ -9,15 +9,15 @@
       "defaultConfiguration": "production",
       "options": {
         "compiler": "babel",
-        "outputPath": "dist/apps/adoptemos",
-        "index": "apps/adoptemos/src/index.html",
+        "outputPath": "dist/apps/react-frontend",
+        "index": "apps/react-frontend/src/index.html",
         "baseHref": "/",
-        "main": "apps/adoptemos/src/main.tsx",
-        "polyfills": "apps/adoptemos/src/polyfills.ts",
-        "tsConfig": "apps/adoptemos/tsconfig.app.json",
+        "main": "apps/react-frontend/src/main.tsx",
+        "polyfills": "apps/react-frontend/src/polyfills.ts",
+        "tsConfig": "apps/react-frontend/tsconfig.app.json",
         "assets": [
-          "apps/adoptemos/src/favicon.ico",
-          "apps/adoptemos/src/assets"
+          "apps/react-frontend/src/favicon.ico",
+          "apps/react-frontend/src/assets"
         ],
         "styles": [],
         "scripts": [],
@@ -33,8 +33,8 @@
         "production": {
           "fileReplacements": [
             {
-              "replace": "apps/adoptemos/src/environments/environment.ts",
-              "with": "apps/adoptemos/src/environments/environment.prod.ts"
+              "replace": "apps/react-frontend/src/environments/environment.ts",
+              "with": "apps/react-frontend/src/environments/environment.prod.ts"
             }
           ],
           "optimization": true,
@@ -50,16 +50,15 @@
       "executor": "@nrwl/web:dev-server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "adoptemos:build",
-        "hmr": true,
-        "proxyConfig": "apps/adoptemos/proxy.conf.json"
+        "buildTarget": "react-frontend:build",
+        "hmr": true
       },
       "configurations": {
         "development": {
-          "buildTarget": "adoptemos:build:development"
+          "buildTarget": "react-frontend:build:development"
         },
         "production": {
-          "buildTarget": "adoptemos:build:production",
+          "buildTarget": "react-frontend:build:production",
           "hmr": false
         }
       }
@@ -68,14 +67,14 @@
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["apps/adoptemos/**/*.{ts,tsx,js,jsx}"]
+        "lintFilePatterns": ["apps/react-frontend/**/*.{ts,tsx,js,jsx}"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/adoptemos"],
+      "outputs": ["coverage/apps/react-frontend"],
       "options": {
-        "jestConfig": "apps/adoptemos/jest.config.ts",
+        "jestConfig": "apps/react-frontend/jest.config.ts",
         "passWithNoTests": true
       }
     }

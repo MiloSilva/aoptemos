@@ -1,17 +1,17 @@
 {
   "$schema": "..\\..\\node_modules\\nx\\schemas\\project-schema.json",
-  "sourceRoot": "apps/adoptemos-e2e/src",
+  "sourceRoot": "apps/angular-frontend-e2e/src",
   "projectType": "application",
   "targets": {
     "e2e": {
       "executor": "@nrwl/cypress:cypress",
       "options": {
-        "cypressConfig": "apps/adoptemos-e2e/cypress.json",
-        "devServerTarget": "adoptemos:serve:development"
+        "cypressConfig": "apps/angular-frontend-e2e/cypress.json",
+        "devServerTarget": "angular-frontend:serve:development"
       },
       "configurations": {
         "production": {
-          "devServerTarget": "adoptemos:serve:production"
+          "devServerTarget": "angular-frontend:serve:production"
         }
       }
     },
@@ -19,10 +19,10 @@
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["apps/adoptemos-e2e/**/*.{js,ts}"]
+        "lintFilePatterns": ["apps/angular-frontend-e2e/**/*.{js,ts}"]
       }
     }
   },
   "tags": [],
-  "implicitDependencies": ["adoptemos"]
+  "implicitDependencies": ["angular-frontend"]
 }

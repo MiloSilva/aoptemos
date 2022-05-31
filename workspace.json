@@ -2,9 +2,11 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
-    "adoptemos": "apps/adoptemos",
-    "adoptemos-e2e": "apps/adoptemos-e2e",
+    "angular-frontend": "apps/angular-frontend",
+    "angular-frontend-e2e": "apps/angular-frontend-e2e",
     "api": "apps/api",
-    "api-interfaces": "libs/api-interfaces"
+    "api-interfaces": "libs/api-interfaces",
+    "react-frontend": "apps/react-frontend",
+    "react-frontend-e2e": "apps/react-frontend-e2e"
   }
 }
