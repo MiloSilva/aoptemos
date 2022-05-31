@@ -1,0 +1,84 @@
+{
+  "$schema": "..\\..\\node_modules\\nx\\schemas\\project-schema.json",
+  "sourceRoot": "apps/adoptemos/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/apps/adoptemos",
+        "index": "apps/adoptemos/src/index.html",
+        "baseHref": "/",
+        "main": "apps/adoptemos/src/main.tsx",
+        "polyfills": "apps/adoptemos/src/polyfills.ts",
+        "tsConfig": "apps/adoptemos/tsconfig.app.json",
+        "assets": [
+          "apps/adoptemos/src/favicon.ico",
+          "apps/adoptemos/src/assets"
+        ],
+        "styles": [],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/adoptemos/src/environments/environment.ts",
+              "with": "apps/adoptemos/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "adoptemos:build",
+        "hmr": true,
+        "proxyConfig": "apps/adoptemos/proxy.conf.json"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "adoptemos:build:development"
+        },
+        "production": {
+          "buildTarget": "adoptemos:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/adoptemos/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/adoptemos"],
+      "options": {
+        "jestConfig": "apps/adoptemos/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
